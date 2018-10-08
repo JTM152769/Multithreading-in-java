@@ -1,8 +1,14 @@
+//volatile keyword in Multithreading
+
 package com.amit.multithreading;
 
 class Worker implements Runnable {
-	
+	  
+	 //This flag 'isTerminated' is set to false 
+	//This will keep reading from cache memory without terminating
 	//private boolean isTerminated = false;
+	
+	//Volatile keyword helps cpu to read from Main memory for better visibility for thread
 	private volatile boolean isTerminated = false;
 	
 	@Override
@@ -39,7 +45,8 @@ public class VolatileDemo {
 		
 		Thread t1 = new Thread(W);
 		
-		t1.setPriority(10);
+		//To manually set the Priority of thread
+		//t1.setPriority(10);
 		
 		t1.start();
 		
