@@ -1,4 +1,4 @@
-//package com.amit.multithreading;
+package com.amit.multithreading;
 
 public class WithSynchronized {
 
