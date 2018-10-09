@@ -1,7 +1,10 @@
+//This is not the good practise to use Synchronized block when we have independent tasks and have different threads as it will 
+//take more time
+
 package com.amit.multithreading;
 
 
-public class VolatileDemo {
+public class SynchronizedBlock {
 	
 	public static int count1=0;
 	public static int count2=0;
