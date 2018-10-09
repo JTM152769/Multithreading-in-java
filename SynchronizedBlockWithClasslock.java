@@ -1,5 +1,6 @@
-//This is not the good practise to use Synchronized block when we have independent tasks and have different threads as it will 
-//take more time
+//This is not the good practise to use Synchronized block when we have independent tasks and have different threads with 
+
+//as it will take more time with intrinsic class lock
 
 package com.amit.multithreading;
 
@@ -10,15 +11,15 @@ public class SynchronizedBlockWithClasslock {
 	public static int count2=0;
 	
 	public static void counter1() {
-    Synchronized(SynchronizedBlockWithClasslock.class){
-      count1++;
-      }
+    		synchronized(SynchronizedBlockWithClasslock.class){
+      			count1++;
+      		}
 	}
 	
 	public synchronized static void counter2() {
-		Synchronized(SynchronizedBlockWithClasslock.class){
-      count2++;
-      }
+		synchronized(SynchronizedBlockWithClasslock.class){
+      			count2++;
+      		}
 	}
 	
 	public static void compute() {
