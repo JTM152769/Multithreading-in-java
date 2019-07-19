@@ -9,14 +9,15 @@
 * Ensure a class only has one instance, and provide a global point of access to it.
 
 ## Thread States/Thread Life Cycle
-    Thread states/Thread life cycle is very basic question, before going deep into concepts we must understand Thread life cycle.       This post contains in depth explanation of thread methods explaining which method puts thread from which state to which state. 
+  Thread states/Thread life cycle is very basic question, before going deep into concepts we must understand Thread life cycle.
+    This post contains in depth explanation of thread methods explaining which method puts thread from which state to whichstate. 
     Thread has following States : 
     * New
     * Runnable
     * Running
     * Waiting/blocked/sleeping
     * Terminated (Dead) 
-
+  
 
 ## Example
 ```java
