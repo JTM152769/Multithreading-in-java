@@ -8,9 +8,15 @@
 * Advantage of Thread : Suppose one thread needs 10 minutes to get certain task, 10 threads used at a time could complete that task in 1 minute, because threads can run parallely.
 * Ensure a class only has one instance, and provide a global point of access to it.
 
-## Implementation
-* Make Sure that there is only one instance : restrict construction - make constructor private and let class manage its instance.
-* Provide a global point of access : a static method to get the sole instance. 
+## Thread States/Thread Life Cycle
+    Thread states/Thread life cycle is very basic question, before going deep into concepts we must understand Thread life cycle.       This post contains in depth explanation of thread methods explaining which method puts thread from which state to which state. 
+    Thread has following States : 
+    * New
+    * Runnable
+    * Running
+    * Waiting/blocked/sleeping
+    * Terminated (Dead) 
+
 
 ## Example
 ```java
