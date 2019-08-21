@@ -6,7 +6,6 @@
 * Multiple threads run parallely in java.  
 * Threads have their own stack.
 * Advantage of Thread : Suppose one thread needs 10 minutes to get certain task, 10 threads used at a time could complete that task in 1 minute, because threads can run parallely.
-* Ensure a class only has one instance, and provide a global point of access to it.
 
 ## Thread States/Thread Life Cycle
   Thread states/Thread life cycle is very basic question, before going deep into concepts we must understand Thread life cycle.
@@ -16,8 +15,51 @@
     * Runnable
     * Running
     * Waiting/blocked/sleeping
-    * Terminated (Dead) 
-  
+    * Terminated (Dead)  
+
+
+* New  
+ * When instance of thread is created using new operator it is in new state, but the start() method has not been invoked on the          thread yet, thread is not eligible to run yet.
+ * Thread object is considered alive but thread is not alive yet.
+
+* Runnable :  
+When start() method is called on thread it enters runnable state. 
+As soon as Thread enters runnable state it is eligible to run, but not running. (Thread scheduler has not scheduled the Thread execution yet, Thread has not entered in run() method yet)
+>A thread first enters the runnable state when the start() method is invoked, but a thread can also return to the runnable state after either running or coming back from a
+blocked, waiting, or sleeping state. 
+>Thread is considered alive in runnable state.
+>Thread is in Runnable pool.
+
+Running : Thread scheduler selects thread to go from runnable to running state. In running state Thread starts executing by entering run() method.
+>Thread scheduler selects thread from the runnable pool on basis of priority, if priority of two threads is same, threads are scheduled in unpredictable manner. Thread scheduler behaviour is completely unpredictable.
+ >When threads are in running state, yield() method can make thread to go in Runnable state.
+
+Waiting/blocked/sleeping : In this state a thread is not eligible to run. 
+>Thread is still alive, but currently it’s not eligible to run. In other words.
+
+> How can Thread go from running to waiting state ?
+   By calling wait() method thread go from running to waiting state. In waiting state it will wait for other threads to release object monitor/lock. 
+> How can Thread return from waiting to runnable state ?
+   Once notify() or notifyAll() method is called object monitor/lock becomes available and thread can again return to runnable state.
+
+
+> How can Thread go from running to sleeping state ?
+   By calling sleep() method thread go from running to sleeping state. In sleeping state it will wait for sleep time to get over.
+> How can Thread return from sleeping to runnable state ?
+   Once specified sleep time is up thread can again return to runnable state.
+
+Suspend() method can be used to put thread in waiting state and resume() method is the only way which could put thread in runnable state.
+
+Thread also may go from running to waiting state if it is waiting for some I/O operation to take place. Once input is available thread may return to running state.
+
+
+Terminated (Dead) : A thread is considered dead when its run() method completes. 
+>Once thread is dead it cannot be started again doing so will throw runtimeException i.e. IllegalThreadStateException.
+
+destroy() method puts thread directly into dead state. 
+
+
+
 
 ## Example
 ```java
